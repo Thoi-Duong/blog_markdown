@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">
+      <%= acticle.title %>
+    </h4>
+    <p class="card-text">
+      <%= @markdown.render(acticle.body).html_safe %>
+    </p>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Edit', edit_acticle_path(acticle), class: "btn btn-warning"%>
+  </div>
+</div>

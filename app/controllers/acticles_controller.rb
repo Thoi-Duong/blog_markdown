@@ -1,5 +1,6 @@
 class ActiclesController < ApplicationController
   before_action :set_acticle, only: [:show, :edit, :update, :destroy]
+  before_action :init_markdown, only: [:show, :index]
 
   # GET /acticles
   # GET /acticles.json
@@ -70,5 +71,9 @@ class ActiclesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def acticle_params
       params.require(:acticle).permit(:title, :body)
+    end
+
+    def init_markdown
+      @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     end
 end
