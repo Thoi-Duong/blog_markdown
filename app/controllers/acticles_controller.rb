@@ -5,7 +5,7 @@ class ActiclesController < ApplicationController
   # GET /acticles
   # GET /acticles.json
   def index
-    @acticles = Acticle.all
+    @acticles = Acticle.search(params[:search])
   end
 
   # GET /acticles/1
