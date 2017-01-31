@@ -8,6 +8,28 @@
     </p>
   </div>
   <div class="card-footer">
+    <div class="text-muted text-center">
+      <%=" Views #{acticle.count}"%>
+    </div>
     <%= link_to 'Edit', edit_acticle_path(acticle), class: "btn btn-warning"%>
+    <%= link_to 'Show', acticle_path(acticle), class: "btn btn-warning"%>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" id="<%= "comment-#{acticle.id}" %>">
+      <%= render acticle.comments%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= form_tag comments_path, :method => 'post', class: "form-group", remote: true do %>
+          <%= fields_for :comment do |ff| %>
+            <%= ff.hidden_field :acticle_id, value: acticle.id%>
+            <%= ff.text_area :content, {class: "form-control", id: "text_area-#{acticle.id}", placeholder: 'Enter your comment here......'} %>
+          <% end %>
+          <%= submit_tag "Post", :name => nil, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

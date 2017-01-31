@@ -1,0 +1,2 @@
+$("#comment-<%=@comment.acticle.id %>").append("<%= escape_javascript("#{render :partial => 'comment', :locals => { :comment => @comment }}").html_safe %>");
+$("#text_area-<%=@comment.acticle.id %>").val('');
