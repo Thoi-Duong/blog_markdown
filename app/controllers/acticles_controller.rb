@@ -11,7 +11,7 @@ class ActiclesController < ApplicationController
   # GET /acticles/1
   # GET /acticles/1.json
   def show
-    @acticle.count += @acticle.count + 1
+    @acticle.count = @acticle.count + 1
     @acticle.save
   end
 

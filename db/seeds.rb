@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+10.times do |i|
+  Comment.create!(content: Faker::Lorem.sentence, acticle_id: (i % 1)+2)
+end
